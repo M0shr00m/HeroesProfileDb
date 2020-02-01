@@ -33,6 +33,7 @@ namespace HeroesProfileDb.HeroesProfile
         public virtual DbSet<LeagueBreakdowns> LeagueBreakdowns { get; set; }
         public virtual DbSet<LeagueTiers> LeagueTiers { get; set; }
         public virtual DbSet<Maps> Maps { get; set; }
+        public virtual DbSet<MapsTranslations> MapsTranslations { get; set; }
         public virtual DbSet<MasterGamesPlayedData> MasterGamesPlayedData { get; set; }
         public virtual DbSet<MasterMmrData> MasterMmrData { get; set; }
         public virtual DbSet<Migrations> Migrations { get; set; }
@@ -111,8 +112,7 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.CreatedAt)
                     .HasColumnName("created_at")
-                    .HasColumnType("timestamp")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("timestamp");
 
                 entity.Property(e => e.Region)
                     .HasColumnName("region")
@@ -127,8 +127,7 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.UpdatedAt)
                     .HasColumnName("updated_at")
-                    .HasColumnType("timestamp")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("timestamp");
             });
 
             modelBuilder.Entity<Battletags>(entity =>
@@ -163,8 +162,7 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.AccountLevel)
                     .HasColumnName("account_level")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.Battletag)
                     .IsRequired()
@@ -180,17 +178,15 @@ namespace HeroesProfileDb.HeroesProfile
                 entity.Property(e => e.LatestGame)
                     .HasColumnName("latest_game")
                     .HasColumnType("datetime")
-                    .HasDefaultValueSql("'''2014-06-26 13:13:34'''");
+                    .HasDefaultValueSql("'2014-06-26 13:13:34'");
 
                 entity.Property(e => e.OptOut)
                     .HasColumnName("opt_out")
-                    .HasColumnType("tinyint(4)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("tinyint(4)");
 
                 entity.Property(e => e.Patreon)
                     .HasColumnName("patreon")
-                    .HasColumnType("tinyint(4)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("tinyint(4)");
 
                 entity.Property(e => e.Region)
                     .HasColumnName("region")
@@ -410,43 +406,35 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.Assists)
                     .HasColumnName("assists")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.ClutchHeals)
                     .HasColumnName("clutch_heals")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.CreepDamage)
                     .HasColumnName("creep_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.DamageTaken)
                     .HasColumnName("damage_taken")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Deaths)
                     .HasColumnName("deaths")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Escapes)
                     .HasColumnName("escapes")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.ExperienceContribution)
                     .HasColumnName("experience_contribution")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.GameTime)
                     .HasColumnName("game_time")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.GamesPlayed)
                     .HasColumnName("games_played")
@@ -454,148 +442,119 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.Healing)
                     .HasColumnName("healing")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.HeroDamage)
                     .HasColumnName("hero_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.HighestKillStreak)
                     .HasColumnName("highest_kill_streak")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Kills)
                     .HasColumnName("kills")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.MercCampCaptures)
                     .HasColumnName("merc_camp_captures")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.MinionDamage)
                     .HasColumnName("minion_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Multikill)
                     .HasColumnName("multikill")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.OutnumberedDeaths)
                     .HasColumnName("outnumbered_deaths")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.PhysicalDamage)
                     .HasColumnName("physical_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.ProtectionAllies)
                     .HasColumnName("protection_allies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.RegenGlobes)
                     .HasColumnName("regen_globes")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.RootingEnemies)
                     .HasColumnName("rooting_enemies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SelfHealing)
                     .HasColumnName("self_healing")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SiegeDamage)
                     .HasColumnName("siege_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SilencingEnemies)
                     .HasColumnName("silencing_enemies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SpellDamage)
                     .HasColumnName("spell_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.StructureDamage)
                     .HasColumnName("structure_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.StunningEnemies)
                     .HasColumnName("stunning_enemies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SummonDamage)
                     .HasColumnName("summon_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Takedowns)
                     .HasColumnName("takedowns")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightDamageTaken)
                     .HasColumnName("teamfight_damage_taken")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightEscapes)
                     .HasColumnName("teamfight_escapes")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightHealing)
                     .HasColumnName("teamfight_healing")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightHeroDamage)
                     .HasColumnName("teamfight_hero_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TimeCcEnemyHeroes)
                     .HasColumnName("time_cc_enemy_heroes")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TimeSpentDead)
                     .HasColumnName("time_spent_dead")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TownKills)
                     .HasColumnName("town_kills")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Vengeance)
                     .HasColumnName("vengeance")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.WatchTowerCaptures)
                     .HasColumnName("watch_tower_captures")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
             });
 
             modelBuilder.Entity<GlobalHeroStatsBans>(entity =>
@@ -744,43 +703,35 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.Assists)
                     .HasColumnName("assists")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.ClutchHeals)
                     .HasColumnName("clutch_heals")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.CreepDamage)
                     .HasColumnName("creep_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.DamageTaken)
                     .HasColumnName("damage_taken")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Deaths)
                     .HasColumnName("deaths")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Escapes)
                     .HasColumnName("escapes")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.ExperienceContribution)
                     .HasColumnName("experience_contribution")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.GameTime)
                     .HasColumnName("game_time")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.GamesPlayed)
                     .HasColumnName("games_played")
@@ -788,148 +739,119 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.Healing)
                     .HasColumnName("healing")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.HeroDamage)
                     .HasColumnName("hero_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.HighestKillStreak)
                     .HasColumnName("highest_kill_streak")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Kills)
                     .HasColumnName("kills")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.MercCampCaptures)
                     .HasColumnName("merc_camp_captures")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.MinionDamage)
                     .HasColumnName("minion_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Multikill)
                     .HasColumnName("multikill")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.OutnumberedDeaths)
                     .HasColumnName("outnumbered_deaths")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.PhysicalDamage)
                     .HasColumnName("physical_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.ProtectionAllies)
                     .HasColumnName("protection_allies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.RegenGlobes)
                     .HasColumnName("regen_globes")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.RootingEnemies)
                     .HasColumnName("rooting_enemies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SelfHealing)
                     .HasColumnName("self_healing")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SiegeDamage)
                     .HasColumnName("siege_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SilencingEnemies)
                     .HasColumnName("silencing_enemies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SpellDamage)
                     .HasColumnName("spell_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.StructureDamage)
                     .HasColumnName("structure_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.StunningEnemies)
                     .HasColumnName("stunning_enemies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SummonDamage)
                     .HasColumnName("summon_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Takedowns)
                     .HasColumnName("takedowns")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightDamageTaken)
                     .HasColumnName("teamfight_damage_taken")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightEscapes)
                     .HasColumnName("teamfight_escapes")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightHealing)
                     .HasColumnName("teamfight_healing")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightHeroDamage)
                     .HasColumnName("teamfight_hero_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TimeCcEnemyHeroes)
                     .HasColumnName("time_cc_enemy_heroes")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TimeSpentDead)
                     .HasColumnName("time_spent_dead")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TownKills)
                     .HasColumnName("town_kills")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Vengeance)
                     .HasColumnName("vengeance")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.WatchTowerCaptures)
                     .HasColumnName("watch_tower_captures")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
             });
 
             modelBuilder.Entity<GlobalHeroTalentsDetails>(entity =>
@@ -998,43 +920,35 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.Assists)
                     .HasColumnName("assists")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.ClutchHeals)
                     .HasColumnName("clutch_heals")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.CreepDamage)
                     .HasColumnName("creep_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.DamageTaken)
                     .HasColumnName("damage_taken")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Deaths)
                     .HasColumnName("deaths")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Escapes)
                     .HasColumnName("escapes")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.ExperienceContribution)
                     .HasColumnName("experience_contribution")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.GameTime)
                     .HasColumnName("game_time")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.GamesPlayed)
                     .HasColumnName("games_played")
@@ -1043,148 +957,119 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.Healing)
                     .HasColumnName("healing")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.HeroDamage)
                     .HasColumnName("hero_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.HighestKillStreak)
                     .HasColumnName("highest_kill_streak")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Kills)
                     .HasColumnName("kills")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.MercCampCaptures)
                     .HasColumnName("merc_camp_captures")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.MinionDamage)
                     .HasColumnName("minion_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Multikill)
                     .HasColumnName("multikill")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.OutnumberedDeaths)
                     .HasColumnName("outnumbered_deaths")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.PhysicalDamage)
                     .HasColumnName("physical_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.ProtectionAllies)
                     .HasColumnName("protection_allies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.RegenGlobes)
                     .HasColumnName("regen_globes")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.RootingEnemies)
                     .HasColumnName("rooting_enemies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SelfHealing)
                     .HasColumnName("self_healing")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SiegeDamage)
                     .HasColumnName("siege_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SilencingEnemies)
                     .HasColumnName("silencing_enemies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SpellDamage)
                     .HasColumnName("spell_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.StructureDamage)
                     .HasColumnName("structure_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.StunningEnemies)
                     .HasColumnName("stunning_enemies")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.SummonDamage)
                     .HasColumnName("summon_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Takedowns)
                     .HasColumnName("takedowns")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightDamageTaken)
                     .HasColumnName("teamfight_damage_taken")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightEscapes)
                     .HasColumnName("teamfight_escapes")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightHealing)
                     .HasColumnName("teamfight_healing")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TeamfightHeroDamage)
                     .HasColumnName("teamfight_hero_damage")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TimeCcEnemyHeroes)
                     .HasColumnName("time_cc_enemy_heroes")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TimeSpentDead)
                     .HasColumnName("time_spent_dead")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.TownKills)
                     .HasColumnName("town_kills")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.Vengeance)
                     .HasColumnName("vengeance")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
 
                 entity.Property(e => e.WatchTowerCaptures)
                     .HasColumnName("watch_tower_captures")
-                    .HasColumnType("int(11) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11) unsigned");
             });
 
             modelBuilder.Entity<Heroes>(entity =>
@@ -1204,14 +1089,12 @@ namespace HeroesProfileDb.HeroesProfile
                 entity.Property(e => e.AltName)
                     .HasColumnName("alt_name")
                     .HasColumnType("varchar(45)")
-                    .HasDefaultValueSql("'NULL'")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.AttributeId)
                     .HasColumnName("attribute_id")
                     .HasColumnType("char(4)")
-                    .HasDefaultValueSql("'NULL'")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_unicode_ci");
 
@@ -1225,24 +1108,20 @@ namespace HeroesProfileDb.HeroesProfile
                 entity.Property(e => e.NewRole)
                     .HasColumnName("new_role")
                     .HasColumnType("varchar(45)")
-                    .HasDefaultValueSql("'NULL'")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.ReleaseDate)
                     .HasColumnName("release_date")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("datetime");
 
                 entity.Property(e => e.ReworkDate)
                     .HasColumnName("rework_date")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("datetime");
 
                 entity.Property(e => e.Role)
                     .HasColumnName("role")
                     .HasColumnType("varchar(32)")
-                    .HasDefaultValueSql("'NULL'")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_unicode_ci");
 
@@ -1256,7 +1135,6 @@ namespace HeroesProfileDb.HeroesProfile
                 entity.Property(e => e.Type)
                     .HasColumnName("type")
                     .HasColumnType("varchar(32)")
-                    .HasDefaultValueSql("'NULL'")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_unicode_ci");
             });
@@ -1443,8 +1321,7 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.RequiredTalentId)
                     .HasColumnName("required_talent_id")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.ShortName)
                     .IsRequired()
@@ -1463,7 +1340,7 @@ namespace HeroesProfileDb.HeroesProfile
                 entity.Property(e => e.Status)
                     .HasColumnName("status")
                     .HasColumnType("varchar(45)")
-                    .HasDefaultValueSql("'''playable'''")
+                    .HasDefaultValueSql("'playable'")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_general_ci");
             });
@@ -1522,9 +1399,7 @@ namespace HeroesProfileDb.HeroesProfile
                     .HasColumnName("league_tier")
                     .HasColumnType("tinyint(4)");
 
-                entity.Property(e => e.MinMmr)
-                    .HasColumnName("min_mmr")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.MinMmr).HasColumnName("min_mmr");
             });
 
             modelBuilder.Entity<LeagueTiers>(entity =>
@@ -1567,16 +1442,40 @@ namespace HeroesProfileDb.HeroesProfile
                 entity.Property(e => e.ShortName)
                     .HasColumnName("short_name")
                     .HasColumnType("varchar(255)")
-                    .HasDefaultValueSql("'NULL'")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Type)
                     .HasColumnName("type")
                     .HasColumnType("varchar(45)")
-                    .HasDefaultValueSql("'NULL'")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
+            });
+
+            modelBuilder.Entity<MapsTranslations>(entity =>
+            {
+                entity.HasKey(e => new { e.Name, e.ShortName, e.Translation })
+                    .HasName("PRIMARY");
+
+                entity.ToTable("maps_translations");
+
+                entity.Property(e => e.Name)
+                    .HasColumnName("name")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_bin");
+
+                entity.Property(e => e.ShortName)
+                    .HasColumnName("short_name")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_bin");
+
+                entity.Property(e => e.Translation)
+                    .HasColumnName("translation")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_bin");
             });
 
             modelBuilder.Entity<MasterGamesPlayedData>(entity =>
@@ -1615,18 +1514,15 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.GamesPlayed)
                     .HasColumnName("games_played")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.Loss)
                     .HasColumnName("loss")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.Win)
                     .HasColumnName("win")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
             });
 
             modelBuilder.Entity<MasterMmrData>(entity =>
@@ -1746,62 +1642,41 @@ namespace HeroesProfileDb.HeroesProfile
                     .HasColumnName("blizz_id")
                     .HasColumnType("int(11) unsigned");
 
-                entity.Property(e => e.HeroConservativeRating)
-                    .HasColumnName("hero_conservative_rating")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.HeroConservativeRating).HasColumnName("hero_conservative_rating");
 
                 entity.Property(e => e.HeroLevel)
                     .HasColumnName("hero_level")
                     .HasColumnType("smallint(6) unsigned");
 
-                entity.Property(e => e.HeroMean)
-                    .HasColumnName("hero_mean")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.HeroMean).HasColumnName("hero_mean");
 
-                entity.Property(e => e.HeroStandardDeviation)
-                    .HasColumnName("hero_standard_deviation")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.HeroStandardDeviation).HasColumnName("hero_standard_deviation");
 
                 entity.Property(e => e.MasteryTaunt)
                     .HasColumnName("mastery_taunt")
-                    .HasColumnType("smallint(6) unsigned")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("smallint(6) unsigned");
 
                 entity.Property(e => e.MmrDateParsed)
                     .HasColumnName("mmr_date_parsed")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("datetime");
 
                 entity.Property(e => e.Party)
                     .HasColumnName("party")
                     .HasColumnType("varchar(45)")
-                    .HasDefaultValueSql("'NULL'")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
 
-                entity.Property(e => e.PlayerConservativeRating)
-                    .HasColumnName("player_conservative_rating")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.PlayerConservativeRating).HasColumnName("player_conservative_rating");
 
-                entity.Property(e => e.PlayerMean)
-                    .HasColumnName("player_mean")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.PlayerMean).HasColumnName("player_mean");
 
-                entity.Property(e => e.PlayerStandardDeviation)
-                    .HasColumnName("player_standard_deviation")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.PlayerStandardDeviation).HasColumnName("player_standard_deviation");
 
-                entity.Property(e => e.RoleConservativeRating)
-                    .HasColumnName("role_conservative_rating")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.RoleConservativeRating).HasColumnName("role_conservative_rating");
 
-                entity.Property(e => e.RoleMean)
-                    .HasColumnName("role_mean")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.RoleMean).HasColumnName("role_mean");
 
-                entity.Property(e => e.RoleStandardDeviation)
-                    .HasColumnName("role_standard_deviation")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.RoleStandardDeviation).HasColumnName("role_standard_deviation");
 
                 entity.Property(e => e.Team)
                     .HasColumnName("team")
@@ -1887,8 +1762,7 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.ParsedId)
                     .HasColumnName("parsed_id")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.Region)
                     .HasColumnName("region")
@@ -1973,29 +1847,17 @@ namespace HeroesProfileDb.HeroesProfile
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
 
-                entity.Property(e => e.CreepXp)
-                    .HasColumnName("creepXP")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.CreepXp).HasColumnName("creepXP");
 
-                entity.Property(e => e.HeroXp)
-                    .HasColumnName("heroXP")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.HeroXp).HasColumnName("heroXP");
 
-                entity.Property(e => e.MinionXp)
-                    .HasColumnName("minionXP")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.MinionXp).HasColumnName("minionXP");
 
-                entity.Property(e => e.StructureXp)
-                    .HasColumnName("structureXP")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.StructureXp).HasColumnName("structureXP");
 
-                entity.Property(e => e.TotalXp)
-                    .HasColumnName("totalXP")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.TotalXp).HasColumnName("totalXP");
 
-                entity.Property(e => e.TrickXp)
-                    .HasColumnName("trickXP")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.TrickXp).HasColumnName("trickXP");
             });
 
             modelBuilder.Entity<Scores>(entity =>
@@ -2017,205 +1879,165 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.Assists)
                     .HasColumnName("assists")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.ClutchHeals)
                     .HasColumnName("clutch_heals")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.CreepDamage)
                     .HasColumnName("creep_damage")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.DamageTaken)
                     .HasColumnName("damage_taken")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.Deaths)
                     .HasColumnName("deaths")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.Escapes)
                     .HasColumnName("escapes")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.ExperienceContribution)
                     .HasColumnName("experience_contribution")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.FirstToTen)
                     .HasColumnName("first_to_ten")
-                    .HasColumnType("tinyint(4)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("tinyint(4)");
 
                 entity.Property(e => e.Healing)
                     .HasColumnName("healing")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.HeroDamage)
                     .HasColumnName("hero_damage")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.HighestKillStreak)
                     .HasColumnName("highest_kill_streak")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.Kills)
                     .HasColumnName("kills")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.Level)
                     .HasColumnName("level")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.MatchAward)
                     .HasColumnName("match_award")
                     .HasColumnType("varchar(10)")
-                    .HasDefaultValueSql("'NULL'")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_general_ci");
 
                 entity.Property(e => e.MercCampCaptures)
                     .HasColumnName("merc_camp_captures")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.MetaExperience)
                     .HasColumnName("meta_experience")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.MinionDamage)
                     .HasColumnName("minion_damage")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.Multikill)
                     .HasColumnName("multikill")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.OutnumberedDeaths)
                     .HasColumnName("outnumbered_deaths")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.PhysicalDamage)
                     .HasColumnName("physical_damage")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.ProtectionAllies)
                     .HasColumnName("protection_allies")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.RegenGlobes)
                     .HasColumnName("regen_globes")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.RootingEnemies)
                     .HasColumnName("rooting_enemies")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.SelfHealing)
                     .HasColumnName("self_healing")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.SiegeDamage)
                     .HasColumnName("siege_damage")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.SilencingEnemies)
                     .HasColumnName("silencing_enemies")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.SpellDamage)
                     .HasColumnName("spell_damage")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.StructureDamage)
                     .HasColumnName("structure_damage")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.StunningEnemies)
                     .HasColumnName("stunning_enemies")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.SummonDamage)
                     .HasColumnName("summon_damage")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.Takedowns)
                     .HasColumnName("takedowns")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.TeamfightDamageTaken)
                     .HasColumnName("teamfight_damage_taken")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.TeamfightEscapes)
                     .HasColumnName("teamfight_escapes")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.TeamfightHealing)
                     .HasColumnName("teamfight_healing")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.TeamfightHeroDamage)
                     .HasColumnName("teamfight_hero_damage")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.TimeCcEnemyHeroes)
                     .HasColumnName("time_cc_enemy_heroes")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.TimeSpentDead)
                     .HasColumnName("time_spent_dead")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.TownKills)
                     .HasColumnName("town_kills")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
 
                 entity.Property(e => e.Vengeance)
                     .HasColumnName("vengeance")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.WatchTowerCaptures)
                     .HasColumnName("watch_tower_captures")
-                    .HasColumnType("int(10)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(10)");
             });
 
             modelBuilder.Entity<SeasonDates>(entity =>
@@ -2262,8 +2084,7 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.DateAdded)
                     .HasColumnName("date_added")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("datetime");
             });
 
             modelBuilder.Entity<TalentCombinations>(entity =>
@@ -2286,43 +2107,35 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.Hero)
                     .HasColumnName("hero")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelFour)
                     .HasColumnName("level_four")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelOne)
                     .HasColumnName("level_one")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelSeven)
                     .HasColumnName("level_seven")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelSixteen)
                     .HasColumnName("level_sixteen")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelTen)
                     .HasColumnName("level_ten")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelThirteen)
                     .HasColumnName("level_thirteen")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelTwenty)
                     .HasColumnName("level_twenty")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
             });
 
             modelBuilder.Entity<Talents>(entity =>
@@ -2342,38 +2155,31 @@ namespace HeroesProfileDb.HeroesProfile
 
                 entity.Property(e => e.LevelFour)
                     .HasColumnName("level_four")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelOne)
                     .HasColumnName("level_one")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelSeven)
                     .HasColumnName("level_seven")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelSixteen)
                     .HasColumnName("level_sixteen")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelTen)
                     .HasColumnName("level_ten")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelThirteen)
                     .HasColumnName("level_thirteen")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
 
                 entity.Property(e => e.LevelTwenty)
                     .HasColumnName("level_twenty")
-                    .HasColumnType("int(11)")
-                    .HasDefaultValueSql("'NULL'");
+                    .HasColumnType("int(11)");
             });
 
             OnModelCreatingPartial(modelBuilder);
