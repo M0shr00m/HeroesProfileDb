@@ -43,6 +43,7 @@ namespace HeroesProfileDb.HeroesProfile
         public virtual DbSet<ReplayBans> ReplayBans { get; set; }
         public virtual DbSet<ReplayDraftOrder> ReplayDraftOrder { get; set; }
         public virtual DbSet<ReplayExperienceBreakdown> ReplayExperienceBreakdown { get; set; }
+        public virtual DbSet<ReplaysNotProcessed> ReplaysNotProcessed { get; set; }
         public virtual DbSet<Scores> Scores { get; set; }
         public virtual DbSet<SeasonDates> SeasonDates { get; set; }
         public virtual DbSet<SeasonGameVersions> SeasonGameVersions { get; set; }
@@ -1858,6 +1859,107 @@ namespace HeroesProfileDb.HeroesProfile
                 entity.Property(e => e.TotalXp).HasColumnName("totalXP");
 
                 entity.Property(e => e.TrickXp).HasColumnName("trickXP");
+            });
+
+            modelBuilder.Entity<ReplaysNotProcessed>(entity =>
+            {
+                entity.HasKey(e => new { e.ReplayId, e.ParsedId })
+                    .HasName("PRIMARY");
+
+                entity.ToTable("replays_not_processed");
+
+                entity.HasIndex(e => e.CountParsed)
+                    .HasName("count_parsed");
+
+                entity.HasIndex(e => e.DateParsed)
+                    .HasName("date_parsed");
+
+                entity.HasIndex(e => e.FailureStatus)
+                    .HasName("failure_status");
+
+                entity.HasIndex(e => e.Processed)
+                    .HasName("processed");
+
+                entity.HasIndex(e => e.Url)
+                    .HasName("url");
+
+                entity.HasIndex(e => new { e.DateParsed, e.CountParsed })
+                    .HasName("index");
+
+                entity.Property(e => e.ReplayId)
+                    .HasColumnName("replayId")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.ParsedId)
+                    .HasColumnName("parsedID")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.CountParsed)
+                    .HasColumnName("count_parsed")
+                    .HasColumnType("int(11)")
+                    .HasDefaultValueSql("'0'");
+
+                entity.Property(e => e.DateParsed)
+                    .HasColumnName("date_parsed")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.FailureStatus)
+                    .HasColumnName("failure_status")
+                    .HasColumnType("longtext")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.GameDate)
+                    .HasColumnName("game_date")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.GameLength)
+                    .HasColumnName("game_length")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.GameMap)
+                    .HasColumnName("game_map")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.GameType)
+                    .HasColumnName("game_type")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.GameVersion)
+                    .HasColumnName("game_version")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Processed)
+                    .HasColumnName("processed")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Region)
+                    .HasColumnName("region")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Size)
+                    .HasColumnName("size")
+                    .HasColumnType("varchar(45)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Url)
+                    .HasColumnName("url")
+                    .HasColumnType("varchar(200)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
             });
 
             modelBuilder.Entity<Scores>(entity =>
